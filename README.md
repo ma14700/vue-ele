@@ -19,3 +19,5 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+这是一个模仿饿了么的项目，因为感觉自己本身代码不够规范，而且vue用的不是很好，算一个练习吧，模仿45个大型页面的代码。
