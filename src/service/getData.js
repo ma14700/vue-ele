@@ -20,3 +20,13 @@ export const hotcity =()=>fetch('api/v1/cities',{
 export const groupcity =() =>fetch('api/v1/cities',{
     type:'group'
 })
+
+//获取当前跳转城市
+export const currentcity = (number) => fetch('api/v1/cities/'+number);
+
+//获取搜索地址
+export const searchplace = (cityid,value) =>fetch('api/v1/pois',{
+    type:'search',
+    city_id:cityid,
+    keyword:value
+})
