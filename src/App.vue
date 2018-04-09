@@ -28,5 +28,8 @@ export default {
 	}
 	.router-fade-enter, .router-fade-leave-active {
 	  	opacity: 0;
-	}
+  }
+  article, aside, footer, header, hgroup, main, nav, section {
+    display: block !important;
+} 
 </style>

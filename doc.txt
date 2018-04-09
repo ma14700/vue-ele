@@ -1,6 +1,6 @@
-出现第一个问题，路由问题，因为这个项目一级路由在index里面，二级路由在app.vue里面，而main.js 挂载的是一级路由，所以在router里面写入的话，应该是children
+1：出现第一个问题，路由问题，因为这个项目一级路由在index里面，二级路由在app.vue里面，而main.js 挂载的是一级路由，所以在router里面写入的话，应该是children
 
-解决第二个问题，开发环境下代理proxyTable；
+2：解决第二个问题，开发环境下代理proxyTable；
 如果是在同一url下，直接把api付给api
 pathRewrite: {'^/api': 'api'}
 
@@ -38,3 +38,17 @@ proxyTable: {
 
 pathRewrite代表重定向位置；
 target代表要指向代理的位置
+
+
+3：v-for中 key的作用
+介绍key的作用不得不说 虚拟dom的diff算法
+vue和react 是虚拟dom，使我们不直接操作dom元素，只操作数据
+
+diff算法
+1：两个相同的组件产生类似的dom结构，不同的组件产生不同的dom
+2：同一层级的一组节点，可以通过唯一id区分
+这样降低diff算法复杂度
+如果节点类型不同，干掉前面的节点，再创建插入新的节点
+节点相同，重置节点属性，更新
+
+所以key的作用是高效更新虚拟dom，使用key去分辨元素

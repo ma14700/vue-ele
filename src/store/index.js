@@ -7,7 +7,10 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-
+    latitude:'',
+    longitude:'',
+    userInfo:null,
+    emoveAddress:[],//移除地址
 }
 
 export default new Vuex.Store({
