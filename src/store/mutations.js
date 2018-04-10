@@ -50,5 +50,11 @@ export default {
     //删除地址列表
     [SAVE_ADDRESS](state,newAdress){
         state.removeAddress = newAdress
-    }
+	},
+	//记录用户信息
+	[RECORD_USERINFO](state,info){
+		state.userInfo = info;
+		state.login = true;
+		setStore('user_id',info.user_id);
+	}
 }

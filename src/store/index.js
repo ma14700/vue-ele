@@ -11,6 +11,7 @@ const state = {
     longitude:'',
     userInfo:null,
     emoveAddress:[],//移除地址
+    login: true,//是否登录
 }
 
 export default new Vuex.Store({

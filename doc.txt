@@ -52,3 +52,11 @@ diff算法
 节点相同，重置节点属性，更新
 
 所以key的作用是高效更新虚拟dom，使用key去分辨元素
+
+4:v-model.lazy 只有在input输入框发生一个blur时才触发
+v-model.trim 将用户输入的前后的空格去掉
+v-model.number 将用户输入的字符串转换成number
+
+CSS justify-content 属性
+
+flex 布局

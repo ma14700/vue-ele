@@ -30,3 +30,33 @@ export const searchplace = (cityid,value) =>fetch('api/v1/pois',{
     city_id:cityid,
     keyword:value
 })
+
+//获取短信验证
+export const mobileCode = phone => fetch('api/v4/moble/verify_code/send',{
+    mobile:phone,
+    scene:'login',
+    type:'sms'
+},'POST')
+
+//检测账号是否存在
+export const checkExsis = (checkNumber,type) => fetch('api/v1/users/exists',{
+    [type]:checkNumber,
+    type
+})
+
+//手机账号登录
+export const sendLogin = (code,mobile,validate_token)=>fetch('api/v1/login/app_mobile',{
+    code,
+    mobile,
+    validate_token
+},'POST')
+
+//获取图片验证码
+export const getcaptchas = ()=>fetch('api/v1/captchas',{},'POST')
+
+//账号密码登录
+export const accountLogin = (username,password,captcha_code) => fetch('api/v2/login',{
+    username,
+    password,
+    captcha_code
+},'POST')
