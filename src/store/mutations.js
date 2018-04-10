@@ -35,6 +35,8 @@ import {localapi,proapi} from '../config/env'
 export default {
     //获取用户信息
     [GET_USERINFO](state,info){
+		console.log(info)
+		console.log(state)
         if(state.userInfo && (state.userInfo.username !== info.username)){
             return;
         };

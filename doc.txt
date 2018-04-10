@@ -60,3 +60,32 @@ v-model.number 将用户输入的字符串转换成number
 CSS justify-content 属性
 
 flex 布局
+
+5：router
+router.push(loaction) 
+window.history.pushState
+跳转到不同的url 向histroy中添加一个新的记录，在用户后退的时候回退回
+
+router.replace(loaction)
+window.history.replaceState
+不添加记录
+
+router.go(n)
+window.history.go 
+前进n步或作后退n步，历史记录不够会失败
+
+false || true
+true
+false && true
+false
+|| 或 && 和
+
+6:登录流程
+在这个项目里面：登录如下
+进入时head组件 使用vuex的action里面方法getUserInfo 调用接口，通过与mutation中的方法对比，判断是否登录过；
+
+跳转登录页面，如果没有登录过，接口accountLogin 回调，存入localStory，使用vuex中RECORD_USERINFO。
+
+在之前做的微信登录，通过main.js中vuex判断是否登录
+router.beforeEach((to, from, next)；
+跳入登录授权页面

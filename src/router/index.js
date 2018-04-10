@@ -3,6 +3,7 @@ import App from '../App'
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
+const test = r => require.ensure([], () => r(require('../page/test')), 'test')
 
 
 
@@ -29,6 +30,13 @@ export default [{
         {
             path:'/login',
             component:login
+        },
+        {
+            path:'/test',
+            component:test,
+            meta:{
+                title:'测试demo'
+            }
         }
     ]
 }]

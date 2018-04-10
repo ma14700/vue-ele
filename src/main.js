@@ -13,6 +13,25 @@ if ('addEventListener' in document) {
 }
 
 Vue.use(VueRouter)
+// 自定义埋点
+Vue.directive('stat',{
+	// bind: 只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。
+	// el: 指令所绑定的元素，可以用来直接操作 DOM 。binding: 一个对象，包含以下属性：
+	bind(el,binding){
+		el.addEventListener('click',()=>{
+			const data = binding.value;
+			let prefix = 'store';
+			if(OS.isAndroid || OS.isPhone){
+				prefix = 'mall';
+			}
+			analytics.request({
+				ty: `${prefix}_${data.type}`,
+				dc: data.desc || ''
+			  }, 'n');
+		},false)
+	}
+})
+
 const router = new VueRouter({
 	routes,
 	mode: routerMode,
