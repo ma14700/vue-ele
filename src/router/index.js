@@ -4,7 +4,7 @@ const home = r => require.ensure([], () => r(require('../page/home/home')), 'hom
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 const test = r => require.ensure([], () => r(require('../page/test')), 'test')
-
+const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
 
 
 
@@ -36,6 +36,13 @@ export default [{
             component:test,
             meta:{
                 title:'测试demo'
+            }
+        },
+        {
+            path:'/msite',
+            component:msite,
+            meta:{
+                title:'首页'
             }
         }
     ]

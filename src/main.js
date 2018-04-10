@@ -46,6 +46,11 @@ const router = new VueRouter({
 		    return { x: 0, y: to.meta.savedPosition || 0 }
 		}
 	}
+});
+
+router.beforeEach((to, from, next)=>{
+	window.document.title = to.meta.title;
+	next();
 })
 
 new Vue({

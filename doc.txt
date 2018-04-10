@@ -89,3 +89,14 @@ false
 在之前做的微信登录，通过main.js中vuex判断是否登录
 router.beforeEach((to, from, next)；
 跳入登录授权页面
+
+7；export default 和 export 区别：
+1.export与export default均可用于导出常量、函数、文件、模块等
+2.你可以在其它文件或模块中通过import+(常量 | 函数 | 文件 | 模块)名的方式，将其导入，以便能够对其进行使用
+3.在一个文件或模块中，export、import可以有多个，export default仅有一个
+4.通过export方式导出，在导入时要加{ }，export default则不需要
+
+作者：开车去环游世界
+链接：https://www.jianshu.com/p/edaf43e9384f
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
