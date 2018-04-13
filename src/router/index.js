@@ -38,12 +38,11 @@ export default [{
                 title:'测试demo'
             }
         },
+        //所有商铺列表页
         {
-            path:'/msite',
-            component:msite,
-            meta:{
-                title:'首页'
-            }
-        }
+            path: '/msite',
+            component: msite,
+            meta: { keepAlive: true },
+        },
     ]
 }]
