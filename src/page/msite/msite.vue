@@ -12,14 +12,23 @@
       </router-link>
     </head-top>
     <div class="msite_nav">
-      <span v-for="(item,index) in foodTypes" :key='index'>
-        <router-link :to="{path:'/food',query:{geohash,title:foodItem.title,restaurant_category_id: getCategoryId(foodItem.link)}}" v-for="foodItem in item" :key="foodItem.id" class="">
+      <div v-for="(item,index) in foodTypes" :key='index' v-if="foodTypes.length" class="nav_content">
+        <router-link :to="{path:'/food',query:{geohash,title:foodItem.title,restaurant_category_id: getCategoryId(foodItem.link)}}" v-for="foodItem in item" :key="foodItem.id" class="nav_router" tag="div" >
             <figure>
-	            				<img :src="imgBaseUrl + foodItem.image_url">
-	            				<figcaption>{{foodItem.title}}</figcaption>
-	            			</figure>
+              <img :src="imgBaseUrl + foodItem.image_url">
+              <figcaption>{{foodItem.title}}</figcaption>
+            </figure>
         </router-link>
-      </span>
+      </div>
+    </div>
+    <div class="shop_list_container">
+      <div class="shop_header">
+        <svg class="shop_icon">
+	    			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shop"></use>
+	    		</svg>
+	    	<span class="shop_header_title">附近商家</span>
+      </div>
+      <shop-list v-if="hasGetData" :geohash="geohash"></shop-list>
     </div>
   </div>
 </template>
@@ -27,6 +36,7 @@
 <script>
 import {mapMutations} from 'vuex'
 import headTop from '../../components/header/head'
+import shopList from '@/components/common/shoplist'
 import {msiteAddress, msiteFoodTypes, cityGuess} from '@/service/getData'
 export default {
   data(){
@@ -63,7 +73,7 @@ export default {
       let resArr = [...res];
       let foodArr = [];
       for(let i = 0,j=0;i<resLength;i+=4,j++){
-        foodArr[j] = resArr.splice(0,4);
+        foodArr[j] = resArr.splice(0,8);
       }
       this.foodTypes = foodArr
     }).then(res=>{
@@ -85,8 +95,7 @@ export default {
   },
   components:{
     headTop,
-    
-  
+    shopList
   }
 }
 </script>
@@ -110,4 +119,41 @@ export default {
       display: block;
     }
   }
+  .msite_nav{
+    width: 100vw;
+    display: flex;
+    margin-top: 2.1rem;
+    background: #fff;
+    padding-bottom: 10px;
+    .nav_router{
+      text-align: center;
+      width: 50%;
+      float: left;
+      @include sc(10px,#333);
+      img{
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+      figcaption{
+        text-align: center;
+      }
+    }
+  }
+  .shop_list_container{
+		margin-top: .4rem;
+		border-top: 0.025rem solid $bc;
+		background-color: #fff;
+		.shop_header{
+			.shop_icon{
+				fill: #999;
+				margin-left: 0.6rem;
+				vertical-align: middle;
+				@include wh(0.6rem, 0.6rem);
+			}
+			.shop_header_title{
+				color: #999;
+				@include font(0.55rem, 1.6rem);
+			}
+		}
+	}
 </style>
