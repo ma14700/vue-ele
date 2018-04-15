@@ -100,6 +100,6 @@ export const shopList = (
 		order_by,
 		'delivery_mode[]': delivery_mode + supportStr
 	};
-	return fetch('/shopping/restaurants', data);
+	return fetch('api/shopping/restaurants', data);
 
 }

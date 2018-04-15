@@ -18,6 +18,9 @@ export default {
   name: 'App',
   components:{
     svgIcon
+  },
+  created(){
+     
   }
 }
 </script>
