@@ -103,3 +103,40 @@ export const shopList = (
 	return fetch('api/shopping/restaurants', data);
 
 }
+
+//获取food页面category 种类列表
+export const foodCategory = (latitude,longitude)=>fetch('api/shopping/v2/restaurant/category',{
+    latitude,longitude
+})
+
+//获取shop商铺详情
+export const shopDetails = (shopid,latitude,longitude)=>fetch('api//shopping/restaurant/'+shopid,{
+    latitude,
+    longitude:longitude+'&extras[]=activities&extras[]=album&extras[]=license&extras[]=identification&extras[]=statistics'
+})
+
+//获取shop页面菜单列表
+export const foodMenu = restaurant_id =>fetch('api/shopping/v2/menu',{
+    restaurant_id
+})
+
+//获取商铺评价列表
+export const getRatingList = (shopid, offset, tag_name = '') => fetch('api/ugc/v2/restaurants/' + shopid + '/ratings', {
+	has_content: true,
+	offset,
+	limit: 10,
+	tag_name
+});
+
+/**
+ * 获取商铺评价分数
+ */
+
+export const ratingScores = shopid => fetch('api/ugc/v2/restaurants/' + shopid + '/ratings/scores');
+
+
+/**
+ * 获取商铺评价分类
+ */
+
+export const ratingTags = shopid => fetch('api/ugc/v2/restaurants/' + shopid + '/ratings/tags');

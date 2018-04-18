@@ -1,6 +1,8 @@
 <template>
   <div>
-
+      <div v-for="(item,index) in 2" :key="index">
+          <input type="text" v-model="arr.name">
+      </div>
   </div>
 </template>
 
@@ -12,6 +14,10 @@ export default {
             queryParams:{
                 currentPage:1,
                 pageSize:10
+            },
+            arr:{
+                name:[],
+                age:[]
             }
         }
     },
@@ -37,8 +43,8 @@ export default {
         }
     },
     mounted(){
-        this.assignParams();
-        this.fecthData();
+        // this.assignParams();
+        // this.fecthData();
     },
     watch:{
         $route:'routeChange'

@@ -14,7 +14,8 @@ const state = {
     login: true,//是否登录
     geohash: '31.22299,121.36025',//地址geohash值
     latitude: '', // 当前位置纬度
-	longitude: '', // 当前位置经度
+    longitude: '', // 当前位置经度
+    shopDetail: null, //商家详情信息
 }
 
 export default new Vuex.Store({
