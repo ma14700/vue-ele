@@ -91,7 +91,7 @@ export default {
     		}else{
     			return ''
     		}
-    	}
+    }
   },
   components:{
     headTop,
