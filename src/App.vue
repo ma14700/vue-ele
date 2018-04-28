@@ -33,6 +33,6 @@ export default {
 	  	opacity: 0;
   }
   article, aside, footer, header, hgroup, main, nav, section {
-    display: block !important;
+    display: block;
 } 
 </style>

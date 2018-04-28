@@ -293,13 +293,18 @@
         <transition name="fade">
             <p class="show_delete_tip" v-if="showDeleteTip">多规格商品只能去购物车删除哦</p>
         </transition>
-        <!-- <transition appear @after-appear = 'afterEnter' @before-appear="beforeEnter" v-for="(item,index) in showMoveDot">
+        <transition
+        appear
+        @after-appear = 'afterEnter'
+        @before-appear="beforeEnter"
+        v-for="(item,index) in showMoveDot"
+        >
             <span class="move_dot" v-if="item">
                 <svg class="move_liner">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-add"></use>
                 </svg>
             </span>
-        </transition> -->
+        </transition>
        <loading v-show="showLoading || loadRatings"></loading>
        <section class="animation_opactiy shop_back_svg_container" v-if="showLoading">
            <img src="../../images/shop_back_svg.svg">
@@ -312,12 +317,12 @@
 
 <script>
     import {mapState, mapMutations} from 'vuex'
-    import {msiteAddress, shopDetails, foodMenu, getRatingList, ratingScores, ratingTags} from '../../service/getData'
-    import loading from '../../components/common/loading'
-    import buyCart from '../../components/common/buyCart'
-    import ratingStar from '../../components/common/ratingStar'
-    import {loadMore, getImgPath} from '../../components/common/mixin'
-    import {imgBaseUrl} from '../../config/env'
+    import {msiteAddress, shopDetails, foodMenu, getRatingList, ratingScores, ratingTags} from 'src/service/getData'
+    import loading from 'src/components/common/loading'
+    import buyCart from 'src/components/common/buyCart'
+    import ratingStar from 'src/components/common/ratingStar'
+    import {loadMore, getImgPath} from 'src/components/common/mixin'
+    import {imgBaseUrl} from 'src/config/env'
     import BScroll from 'better-scroll'
 
     export default {

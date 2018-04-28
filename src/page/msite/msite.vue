@@ -30,6 +30,7 @@
       </div>
       <shop-list v-if="hasGetData" :geohash="geohash"></shop-list>
     </div>
+    <food-guide></food-guide>
   </div>
 </template>
 
@@ -38,6 +39,7 @@ import {mapMutations} from 'vuex'
 import headTop from '../../components/header/head'
 import shopList from '@/components/common/shoplist'
 import {msiteAddress, msiteFoodTypes, cityGuess} from '@/service/getData'
+import foodGuide from '../../components/footer/footGuide'
 export default {
   data(){
       return{
@@ -95,7 +97,8 @@ export default {
   },
   components:{
     headTop,
-    shopList
+    shopList,
+    foodGuide
   }
 }
 </script>
